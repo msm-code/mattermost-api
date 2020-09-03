@@ -118,11 +118,13 @@ data Session = Session
 data Login
   = Login
   { username :: Text
+  , token    :: Text
   , password :: Text
   }
 
 instance A.ToJSON Login where
   toJSON l = A.object ["login_id" A..= username l
+                      ,"token" A..= token l
                       ,"password" A..= password l
                       ]
 
